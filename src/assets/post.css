@@ -1,0 +1,27 @@
+.single-post {
+  border: 2px solid lightblue;
+  height: 500px;
+  width: 400px;
+  margin: 1%;
+  float: left;
+  position: relative;
+}
+
+.post-title {
+  font-size: 24px;
+  text-align: center;
+  padding: 20px 10px;
+  border-bottom: 2px solid lightskyblue;
+}
+
+.post-body {
+  font-size: 16px;
+  margin: 20px;
+  text-align: center;
+}
+
+.post-date {
+  font-size: 14px;
+  text-align: center;
+  padding-top: 5%;
+}

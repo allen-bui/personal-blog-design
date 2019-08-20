@@ -1,0 +1,79 @@
+import React from 'react';
+import { withRouter } from 'react-router';
+import apiServices from './apiServices.js';
+import { Link } from 'react-router-dom';
+
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+      isLoginSuccess: false,
+      isWrongAttempt: false,
+    };
+    this.onChange = this.onChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.handleProfile = this.handleProfile.bind(this);
+  }
+
+  onChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
+  onSubmit(event) {
+    event.preventDefault();
+    apiServices
+      .postRequest('login', {
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then((data) => {
+        this.setState({
+          isLoginSuccess: data.isUserFound,
+        }, () => {
+          if (!this.state.isLoginSuccess) {
+            alert('wrong password or login: please register first or try again');
+          }
+        });
+      });
+  }
+
+  handleProfile() {
+    this.props.history.push({
+      pathname: `/home`,
+      username: this.state.username,
+    });
+  }
+
+  render() {
+    if (this.state.isLoginSuccess) {
+      return (
+        <div>
+          <h1>Login Successful!</h1>
+          <button onClick={this.handleProfile}>Go to Home</button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1>Login</h1>
+          <form onSubmit={this.onSubmit}>
+            <label htmlFor='username'>Username</label>
+            <input type='text' name='username' onChange={this.onChange} required/>
+            <label htmlFor='password'>Password</label>
+            <input type='password' name='password' onChange={this.onChange} required/>
+            <input type='submit' />
+          </form>
+          <br/>
+
+          <Link to='/register'><button>Go to Register</button></Link>
+        </div>
+      );
+    }
+  }
+}
+
+export default withRouter(Login);
