@@ -52,22 +52,36 @@ class Registration extends React.Component {
             <div className="welcome-text">Registration</div>
             <form onSubmit={this.onSubmit}>
               {/* Username */}
-              <label htmlFor="username">Username: </label>
-              <input
-                type="text"
-                name="username"
-                onChange={this.onChange}
-                required
-              />
+              <div>
+                <label htmlFor="username">Username: </label>
+                <input
+                  type="text"
+                  name="username"
+                  onChange={this.onChange}
+                  className="registration-input"
+                  required
+                />
+              </div>
               {/* Password */}
-              <label htmlFor="password">Password: </label>
-              <input
-                type="password"
-                name="password"
-                onChange={this.onChange}
-                required
-              />
-              <input type="submit" />
+              <div>
+                <label htmlFor="password">Password: </label>
+                <input
+                  type="password"
+                  name="password"
+                  onChange={this.onChange}
+                  className="registration-input"
+                  required
+                />
+              </div>
+              <div>
+                <label className="confirmation">Confirm: </label>
+                <input
+                  type="password"
+                  className="registration-input"
+                  required
+                />
+              </div>
+              <input type="submit" className="registration-submit" />
             </form>
           </div>
         </div>

@@ -32,3 +32,18 @@ body {
 }
 
 /* REGISTRATION */
+
+.registration-input {
+  width: 50%;
+  margin: 2%;
+}
+
+.confirmation {
+  margin: 5px;
+}
+
+
+.registration-submit {
+  width: 30%;
+  margin: 5%;
+}
