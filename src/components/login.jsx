@@ -31,13 +31,18 @@ class Login extends React.Component {
         password: this.state.password,
       })
       .then((data) => {
-        this.setState({
-          isLoginSuccess: data.isUserFound,
-        }, () => {
-          if (!this.state.isLoginSuccess) {
-            alert('wrong password or login: please register first or try again');
-          }
-        });
+        this.setState(
+          {
+            isLoginSuccess: data.isUserFound,
+          },
+          () => {
+            if (!this.state.isLoginSuccess) {
+              alert(
+                'wrong password or login: please register first or try again',
+              );
+            }
+          },
+        );
       });
   }
 
@@ -58,18 +63,37 @@ class Login extends React.Component {
       );
     } else {
       return (
-        <div>
-          <h1>Login</h1>
-          <form onSubmit={this.onSubmit}>
-            <label htmlFor='username'>Username</label>
-            <input type='text' name='username' onChange={this.onChange} required/>
-            <label htmlFor='password'>Password</label>
-            <input type='password' name='password' onChange={this.onChange} required/>
-            <input type='submit' />
-          </form>
-          <br/>
-
-          <Link to='/register'><button>Go to Register</button></Link>
+        <div className="header-container">
+          <div className="login-container">
+            <div className="welcome-text">Login</div>
+            <form onSubmit={this.onSubmit}>
+              <div>
+                <label htmlFor="username">Username: </label>
+                <input
+                  type="text"
+                  className="registration-input"
+                  name="username"
+                  onChange={this.onChange}
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="password">Password: </label>
+                <input
+                  type="password"
+                  className="registration-input"
+                  name="password"
+                  onChange={this.onChange}
+                  required
+                />
+              </div>
+              <Link to="/register">
+                <button className="registration-submit">Go to Register</button>
+              </Link>
+              <input type="submit" className="registration-submit" />
+            </form>
+          </div>
+          <br />
         </div>
       );
     }
