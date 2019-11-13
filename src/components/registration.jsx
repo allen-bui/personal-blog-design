@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './style.css';
 
 class Registration extends React.Component {
   constructor() {
@@ -27,38 +28,48 @@ class Registration extends React.Component {
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-      .then(() => {
-        this.setState({
-          accountCreated: true,
-        })
+    }).then(() => {
+      this.setState({
+        accountCreated: true,
       });
+    });
   }
 
   render() {
-
     if (this.state.accountCreated) {
       return (
         <div>
           <h2>Account Created Succesfully</h2>
-          <Link to='/'>
+          <Link to="/">
             <button>Return Home</button>
           </Link>
         </div>
-        )
+      );
     } else {
       return (
-        <div>
-          <h1>Registration</h1>
-          <form onSubmit={this.onSubmit}>
-            {/* Username */}
-            <label htmlFor='username'>Username: </label>
-            <input type='text' name='username' onChange={this.onChange} required/>
-            {/* Password */}
-            <label htmlFor='password'>Password: </label>
-            <input type='password' name='password' onChange={this.onChange} required/>
-            <input type='submit' />
-          </form>
+        <div className="header-container">
+          <div className="login-container">
+            <div className="welcome-text">Registration</div>
+            <form onSubmit={this.onSubmit}>
+              {/* Username */}
+              <label htmlFor="username">Username: </label>
+              <input
+                type="text"
+                name="username"
+                onChange={this.onChange}
+                required
+              />
+              {/* Password */}
+              <label htmlFor="password">Password: </label>
+              <input
+                type="password"
+                name="password"
+                onChange={this.onChange}
+                required
+              />
+              <input type="submit" />
+            </form>
+          </div>
         </div>
       );
     }
