@@ -57,6 +57,14 @@ body {
   font-size: 36px;
 }
 
+.home-welcome-text {
+  background-image: url('https://ak5.picdn.net/shutterstock/videos/20361445/thumb/10.jpg');
+  background-position: center;
+  padding: 5% 0%;
+  font-size: 36px;
+  color: #000;
+}
+
 .home-button {
   margin: 5% 5%;
   width: 30%;

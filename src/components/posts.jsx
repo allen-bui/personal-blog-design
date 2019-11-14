@@ -6,7 +6,7 @@ const Posts = (props) => {
     return (
       <div className="home-header-container">
         <div className="home-page-container">
-          <div className='welcome-text'>List of Posts</div>
+          <div className='home-welcome-text'>List of Posts</div>
           <ol>
             {props.data.map((element, index) => {
               return (
