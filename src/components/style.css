@@ -2,6 +2,21 @@
 
 body {
   font-family: 'Merienda', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.lower-text {
+  font-size: 20px;
+  margin: 5% 0%;
 }
 
 .header-container {
@@ -13,6 +28,7 @@ body {
 }
 
 .login-container {
+  background-color: #fff;
   width: 400px;
   height: 300px;
   border: 1px solid #aaa;
@@ -21,17 +37,19 @@ body {
 }
 
 .welcome-text {
-  margin: 5% 0%;
+  margin: 10% 0%;
   font-size: 36px;
 }
 
 .home-button {
   margin: 5% 5%;
   width: 30%;
+  height: 10%;
+  font-size: 16px;
   cursor: pointer;
 }
 
-/* REGISTRATION */
+/* REGISTRATION / LOGIN */
 
 .registration-input {
   width: 50%;

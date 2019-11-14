@@ -64,6 +64,11 @@ class Login extends React.Component {
     } else {
       return (
         <div className="header-container">
+          <img
+            src="http://pitsel.com/wp-content/uploads/2019/05/blog-communication-data-desk-wallpaper.jpg"
+            alt="blog"
+            className="blog-image"
+          />
           <div className="login-container">
             <div className="welcome-text">Login</div>
             <form onSubmit={this.onSubmit}>

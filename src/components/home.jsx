@@ -1,6 +1,6 @@
 import React from 'react';
 import apiServices from './apiServices.js';
-import SinglePost from './post.jsx';
+import Posts from './posts.jsx';
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -62,17 +62,16 @@ class Home extends React.Component {
       headers: {
         'Content-Type': 'application/json',
       },
-    })
-      .then(() => {
-        apiServices
+    }).then(() => {
+      apiServices
         .postRequest('posts', { username: this.state.username })
         .then((data) => {
           this.setState({
             data,
           });
         });
-        this.closeModal();
-      });
+      this.closeModal();
+    });
   }
 
   openModal() {
@@ -120,22 +119,22 @@ class Home extends React.Component {
         >
           <h2 ref={(subtitle) => (this.subtitle = subtitle)}>New Post</h2>
           <form onSubmit={this.onSubmit}>
-            <label htmlFor='postTitle'>Post Title</label>
+            <label htmlFor="postTitle">Post Title</label>
             <br />
-            <input type='text' name='postTitle' onChange={this.onChange} />
+            <input type="text" name="postTitle" onChange={this.onChange} />
             <br />
             <br />
-            <label htmlFor='postBody'>Post Body</label>
+            <label htmlFor="postBody">Post Body</label>
             <textarea
-              rows='25'
-              cols='175'
-              name='postBody'
+              rows="25"
+              cols="175"
+              name="postBody"
               onChange={this.onChange}
             />
             <br />
             <br />
             <button onClick={this.closeModal}>Close</button>
-            <input type="submit"/>
+            <input type="submit" />
           </form>
         </Modal>
         <button onClick={this.layoutViewChange}>{this.state.buttonText}</button>
@@ -147,37 +146,5 @@ class Home extends React.Component {
     );
   }
 }
-
-const Posts = (props) => {
-  if (props.isCollapsedView) {
-    return (
-      <ol>
-        {props.data.map((element, index) => {
-          return (
-            <SinglePost
-              data={element}
-              key={index}
-              isCollapsedView={props.isCollapsedView}
-            />
-          );
-        })}
-      </ol>
-    );
-  } else {
-    return (
-      <div>
-        {props.data.map((element, index) => {
-          return (
-            <SinglePost
-              data={element}
-              key={index}
-              isCollapsedView={props.isCollapsedView}
-            />
-          );
-        })}
-      </div>
-    );
-  }
-};
 
 export default Home;
