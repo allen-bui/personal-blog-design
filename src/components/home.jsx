@@ -30,8 +30,8 @@ class Home extends React.Component {
     this.state = {
       username: this.props.location.username || 'allen',
       data: [],
-      isCollapsedView: true,
-      buttonText: 'Expand Posts',
+      isCollapsedView: false,
+      buttonText: 'Collapse Posts',
       modalIsOpen: false,
       postBody: '',
       postTitle: '',
@@ -90,9 +90,9 @@ class Home extends React.Component {
     this.setState({
       isCollapsedView: !this.state.isCollapsedView,
       buttonText:
-        this.state.buttonText === 'Expand Posts'
-          ? 'Collapse Posts'
-          : 'Expand Posts',
+        this.state.buttonText === 'Collapse Posts'
+          ? 'Expand Posts'
+          : 'Collapse Posts',
     });
   }
 
@@ -108,9 +108,16 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Posts</h1>
-        <button onClick={this.openModal}>New Blog Post</button>
+      <div className="home-container">
+        <div className="home-post-title">Your Blog Posts</div>
+        <div className="button-container">
+          <button className="home-page-buttons" onClick={this.openModal}>
+            New Blog Post
+          </button>
+          <button className="home-page-buttons" onClick={this.layoutViewChange}>
+            {this.state.buttonText}
+          </button>
+        </div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -137,7 +144,6 @@ class Home extends React.Component {
             <input type="submit" />
           </form>
         </Modal>
-        <button onClick={this.layoutViewChange}>{this.state.buttonText}</button>
         <Posts
           data={this.state.data}
           isCollapsedView={this.state.isCollapsedView}

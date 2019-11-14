@@ -56,9 +56,16 @@ class Login extends React.Component {
   render() {
     if (this.state.isLoginSuccess) {
       return (
-        <div>
-          <h1>Login Successful!</h1>
-          <button onClick={this.handleProfile}>Go to Home</button>
+        <div className="header-container">
+          <img
+            src="http://pitsel.com/wp-content/uploads/2019/05/blog-communication-data-desk-wallpaper.jpg"
+            alt="blog"
+            className="blog-image"
+          />
+          <div className="login-container">
+            <div className="welcome-text">Login Successful!</div>
+            <button onClick={this.handleProfile} className='registration-submit'>Go to Home</button>
+          </div>
         </div>
       );
     } else {

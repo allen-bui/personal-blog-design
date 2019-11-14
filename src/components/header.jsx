@@ -11,6 +11,7 @@ class Header extends React.Component {
   }
 
   render() {
+
     return (
       <div className="header-container">
         <img src="http://pitsel.com/wp-content/uploads/2019/05/blog-communication-data-desk-wallpaper.jpg" alt="blog" className='blog-image'/>
