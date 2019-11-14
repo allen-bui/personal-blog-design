@@ -1,5 +1,4 @@
 import React from 'react';
-import './../assets/post.css';
 
 class SinglePost extends React.Component {
   constructor(props) {
