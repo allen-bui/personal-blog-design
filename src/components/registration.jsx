@@ -38,11 +38,18 @@ class Registration extends React.Component {
   render() {
     if (this.state.accountCreated) {
       return (
-        <div>
-          <h2>Account Created Succesfully</h2>
-          <Link to="/">
-            <button>Return Home</button>
-          </Link>
+        <div className="header-container">
+          <img
+            src="http://pitsel.com/wp-content/uploads/2019/05/blog-communication-data-desk-wallpaper.jpg"
+            alt="blog"
+            className="blog-image"
+          />
+          <div className='login-container'>
+            <div className="welcome-text">Account Created Succesfully</div>
+            <Link to="/">
+              <button className="registration-submit">Return Home</button>
+            </Link>
+          </div>
         </div>
       );
     } else {
